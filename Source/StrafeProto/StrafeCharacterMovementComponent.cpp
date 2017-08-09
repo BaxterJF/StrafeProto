@@ -121,11 +121,11 @@ void UStrafeCharacterMovementComponent::CalcVelocity(float DeltaTime, float Fric
 
 		Velocity = Velocity + (StrafingMultiplier * Acceleration * FMath::Max<float>(0.5f, 1.f - Dot)) * DeltaTime;
 
-		if (Velocity.Size2D() > CurrentVelocity2D.Size2D())
+		/*if (Velocity.Size2D() > CurrentVelocity2D.Size2D())
 		{
 			Velocity.Normalize();
 			Velocity = Velocity * FMath::Max<float>(1.5f, Velocity.Size2D());
-		}
+		}*/
 
 		//UE_LOG(LogFPMov, Warning, TEXT("CalcVelocity(): Velocity: {x=%f, y=%f, z=%f"), Velocity.X, Velocity.Y, Velocity.Z);
 	}
