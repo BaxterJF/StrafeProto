@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "StrafeCharacterMovementComponent.h"
 #include "StrafeProtoCharacter.generated.h"
 
 class UInputComponent;
@@ -11,8 +12,8 @@ class UInputComponent;
 UCLASS(config=Game)
 class AStrafeProtoCharacter : public ACharacter
 {
-	GENERATED_BODY()
-
+	GENERATED_UCLASS_BODY()
+	
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
 	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
 	class USkeletalMeshComponent* Mesh1P;
@@ -94,5 +95,7 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+private:
+	UStrafeCharacterMovementComponent* MovementComponent;
 };
 

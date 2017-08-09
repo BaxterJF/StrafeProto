@@ -1,6 +1,8 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #include "StrafeProtoCharacter.h"
+#include "GameFramework/Character.h"
+#include "StrafeCharacterMovementComponent.h"
 #include "StrafeProtoProjectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
@@ -14,8 +16,11 @@ DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 //////////////////////////////////////////////////////////////////////////
 // AStrafeProtoCharacter
 
-AStrafeProtoCharacter::AStrafeProtoCharacter()
+AStrafeProtoCharacter::AStrafeProtoCharacter(const class FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<UStrafeCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
+
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 
